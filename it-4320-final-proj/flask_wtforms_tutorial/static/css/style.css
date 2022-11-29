@@ -20,3 +20,23 @@ a {
 li {
   text-align: center;
 }
+
+.nav {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 35px;
+}
+
+.nav a {
+  color: white;
+  background-color: #5eb9d7;
+  padding: 10px;
+  border: 1px solid #5eb9d7;
+  transition: background-color 0.3s ease;
+}
+
+.nav a:hover {
+  background-color: white;
+  color: #5eb9d7;
+  
+}
