@@ -61,11 +61,7 @@ class ReservationForm(FlaskForm):
 
 class AdminLoginForm(FlaskForm):
     """Admin login form"""
-    
     #THIS IS WHERE YOU WILL IMPLEMENT CODE TO POPULATE THE SYMBOL FIELD WITH STOCK OPTIONS
     username = StringField('Username', [DataRequired()])
     password = StringField('Password', [DataRequired()])
     login = SubmitField("Login")
-
-
-
