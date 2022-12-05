@@ -3,6 +3,7 @@ from flask import redirect, render_template, url_for, request, flash
 
 from .forms import *
 from .admin import *
+from .chart import *
 
 
 #@app.route("/", methods=['GET', 'POST'])
@@ -24,11 +25,13 @@ def user_options():
 def admin():
 
     form = AdminLoginForm()
+    form.chart = []
 
     if(form.is_submitted()):
       
       if(authenticate(form.username.data, form.password.data)):
         form.message = 'authenticated'
+        form.chart = display_chart()
       else:
         form.message = 'invalid username and/or password'
       # this code triggers when user hits submit

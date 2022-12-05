@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   background: #e1eaf5;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -39,4 +43,21 @@ li {
   background-color: white;
   color: #5eb9d7;
   
+}
+
+.chart-row {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.reserved, .open {
+  height: 20px;
+  width: 20px;
+  border: 1px solid black;
+}
+
+.reserved {
+  border-width: 2px;
+  background-color: darkgray;
 }

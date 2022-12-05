@@ -12,7 +12,22 @@
     <a href="/admin">Admin</a>
     <a href="/reservations">Reservation</a>
   </div>  
-  <p>{{form.message}}</p>
+  {% if form.chart != [] %}
+  <h3>Seating Chart</h3>
+  <div class="chart">
+    {% for row in form.chart %}
+      <div class="chart-row">
+        {% for col in row %}
+          {% if col == 1 %}
+            <div class="reserved"></div>
+          {% else %}
+            <div class="open"></div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    {% endfor %}
+  </div>
+  {% endif %}
   <form method="POST" action="/admin">
       {{ form.csrf_token }}
       <div class="form-field">{{ form.username.label }} {{ form.username }}
