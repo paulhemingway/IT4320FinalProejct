@@ -32,6 +32,7 @@ def admin():
       if(authenticate(form.username.data, form.password.data)):
         form.message = 'authenticated'
         form.chart = display_chart()
+        form.totalSales = calculate_sales()
       else:
         form.message = 'invalid username and/or password'
       # this code triggers when user hits submit
