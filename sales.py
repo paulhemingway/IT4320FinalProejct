@@ -31,6 +31,5 @@ def Calculate_sales():
 
     return(sales)
 
-Total_Sales = Calculate_sales()
-
+#Total_Sales = Calculate_sales()
 #print(Total_Sales)
