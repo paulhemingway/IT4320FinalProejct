@@ -27,6 +27,7 @@
       </div>
     {% endfor %}
   </div>
+  <p>Total Sales: {{ form.totalSales }}</p>
   {% endif %}
   <form method="POST" action="/admin">
       {{ form.csrf_token }}
