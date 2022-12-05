@@ -26,6 +26,7 @@ def admin():
     form = AdminLoginForm()
 
     if(form.is_submitted()):
+      
       if(authenticate(form.username.data, form.password.data)):
         form.message = 'authenticated'
       else:

@@ -1,7 +1,7 @@
 def Add_reservation(firstName, row, column):
 
-    if (!check_availability(row, column)):
-        return false
+    if (check_availability(row, column) == False):
+        return False
     while (True):
         # figured i should make sure they are inputing integers
         if (not row.isdigit() or not column.isdigit()):
@@ -18,3 +18,8 @@ def Add_reservation(firstName, row, column):
     record = ('\n'+firstName+','+str(row)+','+str(column)+','+code)
     file.write(record)
     file.close()
+
+    test = [[1,0,0,0]]
+
+def check_availability(row, col):
+  return True
