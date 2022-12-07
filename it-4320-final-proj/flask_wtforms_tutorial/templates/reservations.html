@@ -12,8 +12,28 @@
     <a href="/admin">Admin</a>
     <a href="/reservations">Reservation</a>
   </div>  
-  
-  <form method="POST" action="/admin">
+  <p class="success-msg">{{form.message}}</p>
+
+  {% if form.message != "" %}
+  <p class="ticker">Your e-ticket number is {{form.code}}</p>
+  {% endif %}
+  <p class="error-msg">{{form.error}}</p>
+  <h3>Seating Chart</h3>
+  <div class="chart">
+    {% for row in form.chart %}
+      <div class="chart-row">
+        {% for col in row %}
+          {% if col == 1 %}
+            <div class="reserved"></div>
+          {% else %}
+            <div class="open"></div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    {% endfor %}
+    
+  </div>
+  <form method="POST" action="/reservations">
       {{ form.csrf_token }}
       <div class="form-field">{{ form.first_name.label }} {{ form.first_name }}
         {% if form.first_name.errors %}

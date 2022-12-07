@@ -1,18 +1,19 @@
 from .chart import *
 
-def Add_reservation(firstName, row, column):
+def add_reservation(firstName, row, column, code):
 
-    if (check_availability(row, column) == False):
+    if (is_available(row-1, column-1) == False):
         return False
 
-    code = generate_reservation_code(firstName)
 
-    file = open('reservation.txt', 'a')  # this should open it as append
-    record = ('\n'+firstName+','+str(row)+','+str(column)+','+code)
+    file = open('reservations.txt', 'a')  # this should open it as append
+    record = ('\n'+firstName+', '+str(row-1)+', '+str(column-1)+', '+code)
     file.write(record)
     file.close()
 
-def check_availability(row, col):
+    return True
+
+def is_available(row, col):
     chart = display_chart()
 
     return chart[row][col] == 0
