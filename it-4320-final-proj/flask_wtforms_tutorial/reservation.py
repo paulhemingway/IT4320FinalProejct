@@ -1,16 +1,9 @@
+from .chart import *
+
 def Add_reservation(firstName, row, column):
 
     if (check_availability(row, column) == False):
         return False
-    while (True):
-        # figured i should make sure they are inputing integers
-        if (not row.isdigit() or not column.isdigit()):
-            print('Enter valid seat row and column.\n')
-        elif (int(row) < 1 or int(row) > 10 or int(column) < 1 or int(column) > 5 or seating_chart[int(row)-1][int(column)-1] != 'O'):
-            print('Row:{} Seat:{} is not available. Please choose again.\n'.format(
-                row, column))
-        else:
-            break
 
     code = generate_reservation_code(firstName)
 
@@ -19,7 +12,23 @@ def Add_reservation(firstName, row, column):
     file.write(record)
     file.close()
 
-    test = [[1,0,0,0]]
-
 def check_availability(row, col):
-  return True
+    chart = display_chart()
+
+    return chart[row][col] == 0
+
+def generate_reservation_code(firstName):
+    str = "INFOTC4320"
+    output = ""
+    n = 0 
+
+    n = max(len(str), len(firstName))
+
+    for i in range(n):
+        if(i < len(firstName)):
+            output += firstName[i]
+        if(i < len(str)):
+            output += str[i]
+
+    return output
+    

@@ -44,6 +44,7 @@ def admin():
 def reservations():
 
     form = ReservationForm()
+    form.chart = display_chart()
 
     return render_template("reservations.html", form=form, template="form-template")
 
